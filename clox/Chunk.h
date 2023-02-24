@@ -22,13 +22,14 @@ typedef enum {
 typedef struct {
     ValueArray values;
     uint8_t *code;
+    int *lines;
     int capacity;
     int count;
 } Chunk;
 
 void initChunk(Chunk *chunk);
 
-void writeChunk(Chunk *chunk, uint8_t byte);
+void writeChunk(Chunk *chunk, uint8_t byte, int line);
 
 void freeChunk(Chunk *chunk);
 

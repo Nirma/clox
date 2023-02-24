@@ -14,9 +14,10 @@ int main(int argc, const char * argv[]) {
     
 
     initChunk(&chunk);
-    writeChunk(&chunk, OP_CONST);
+    writeChunk(&chunk, OP_CONST, 1);
     int location = addValue(&chunk, 123);
-    writeChunk(&chunk, location);
+    writeChunk(&chunk, location, 1);
+    writeChunk(&chunk, OP_RETURN, 2);
     dissassembleChunk(&chunk, "Nick's Chunk");
     freeChunk(&chunk);
     

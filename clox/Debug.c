@@ -23,17 +23,22 @@ int simpleInstruction(const char* name, int offset) {
 int constantInstruction(const char* name, Chunk *chunk, int offset) {
     uint8_t location = chunk->code[offset + 1];
     uint8_t value = chunk->values.values[location];
-    
-    printf("\n\n==== %s ====\n", name);
-    printf("Offset: %4d\n", offset);
-    printf("Value: %d\n\n", value);
+    printf("OP_CONST ");
+    printf(" NAME: %s", name);
+    printf(" Value: %d\n\n", value);
     
     return offset + 2;
 }
 
 int disassembleInstruction(Chunk *chunk, int offset) {
+    printf("%04d", offset);
     uint8_t instruction = chunk->code[offset];
-    printf("Offset: %04d ", offset);
+    if (offset > 0 && chunk->lines[offset] == chunk->lines[offset-1]) {
+        printf(" | ");
+    } else {
+        printf("%4d ", chunk->lines[offset]);
+    }
+    
     switch (instruction) {
         case OP_RETURN:
             return simpleInstruction("OP_RETURN", offset);
