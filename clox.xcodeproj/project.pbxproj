@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		E17227AC29A51965006B33B8 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = E17227AB29A51965006B33B8 /* main.c */; };
 		E17227B429A63039006B33B8 /* Chunk.c in Sources */ = {isa = PBXBuildFile; fileRef = E17227B329A63039006B33B8 /* Chunk.c */; };
+		E17227B729A89AC8006B33B8 /* Debug.c in Sources */ = {isa = PBXBuildFile; fileRef = E17227B629A89AC8006B33B8 /* Debug.c */; };
+		E17227BA29A8B7E5006B33B8 /* Value.c in Sources */ = {isa = PBXBuildFile; fileRef = E17227B929A8B7E5006B33B8 /* Value.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +30,10 @@
 		E17227AB29A51965006B33B8 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		E17227B229A519E2006B33B8 /* Chunk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Chunk.h; sourceTree = "<group>"; };
 		E17227B329A63039006B33B8 /* Chunk.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Chunk.c; sourceTree = "<group>"; };
+		E17227B529A89AC8006B33B8 /* Debug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Debug.h; sourceTree = "<group>"; };
+		E17227B629A89AC8006B33B8 /* Debug.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Debug.c; sourceTree = "<group>"; };
+		E17227B829A8B7E5006B33B8 /* Value.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Value.h; sourceTree = "<group>"; };
+		E17227B929A8B7E5006B33B8 /* Value.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Value.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +67,12 @@
 			isa = PBXGroup;
 			children = (
 				E17227B329A63039006B33B8 /* Chunk.c */,
-				E17227AB29A51965006B33B8 /* main.c */,
 				E17227B229A519E2006B33B8 /* Chunk.h */,
+				E17227B629A89AC8006B33B8 /* Debug.c */,
+				E17227B529A89AC8006B33B8 /* Debug.h */,
+				E17227AB29A51965006B33B8 /* main.c */,
+				E17227B929A8B7E5006B33B8 /* Value.c */,
+				E17227B829A8B7E5006B33B8 /* Value.h */,
 			);
 			path = clox;
 			sourceTree = "<group>";
@@ -124,6 +134,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E17227B729A89AC8006B33B8 /* Debug.c in Sources */,
+				E17227BA29A8B7E5006B33B8 /* Value.c in Sources */,
 				E17227AC29A51965006B33B8 /* main.c in Sources */,
 				E17227B429A63039006B33B8 /* Chunk.c in Sources */,
 			);
