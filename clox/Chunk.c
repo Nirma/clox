@@ -24,7 +24,6 @@ int addValue(Chunk *chunk, Value value) {
     if (array->capacity < array->count + 1) {
         array->capacity = GROW_CAPACITY(array->capacity);
         array->values = realloc(array->values, array->capacity);
-        printf("Allocating...");
     }
 
     array->values[array->count] = value;

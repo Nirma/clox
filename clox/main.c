@@ -30,12 +30,10 @@ int main(int argc, const char * argv[]) {
     writeChunk(&chunk, OP_ADD, 1);
     writeChunk(&chunk, OP_NEGATE, 1);
     
-    location = addValue(&chunk, 500);
-   // writeChunk(&chunk, OP_CONST, 1);
-   // writeChunk(&chunk, location, 150);
+    // location = addValue(&chunk, 500);
+    // writeChunk(&chunk, OP_CONST, 1);
+    // writeChunk(&chunk, location, 150);
     
-    
-
     interpretChunk(&chunk);
     return 0;
 }
