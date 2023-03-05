@@ -7,6 +7,8 @@
 
 #include "Value.h"
 #include "Chunk.h"
+#include "Debug.h"
+#include "VM.h"
 
 void initValueArray(ValueArray* array) {
     array->count = 0;
@@ -15,11 +17,13 @@ void initValueArray(ValueArray* array) {
 }
 
 void writeValueArray(ValueArray* array, Value value) {
+    
     if (array->capacity < array->count + 1) {
-        size_t oldsize = array->capacity;
         array->capacity = GROW_CAPACITY(array->capacity);
-        array->values = reallocate(array->values, oldsize, array->capacity);
+        array->values = realloc(array->values, array->capacity);
+        printf("Allocating...");
     }
+
     array->values[array->count] = value;
     array->count++;
 }

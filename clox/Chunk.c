@@ -8,6 +8,7 @@
 #include "Chunk.h"
 #include <stdint.h>
 #include <stdlib.h>
+#include "Debug.h"
 
 
 void initChunk(Chunk *chunk) {
@@ -18,19 +19,24 @@ void initChunk(Chunk *chunk) {
     initValueArray(&chunk->values);
 }
 
-uint8_t *growArray(uint8_t *ptr, int size) {
-    return realloc(ptr, size);
-}
-
 int addValue(Chunk *chunk, Value value) {
-    writeValueArray(&chunk->values, value);
+    ValueArray *array = &chunk->values;
+    if (array->capacity < array->count + 1) {
+        array->capacity = GROW_CAPACITY(array->capacity);
+        array->values = realloc(array->values, array->capacity);
+        printf("Allocating...");
+    }
+
+    array->values[array->count] = value;
+    array->count++;
+   // writeValueArray(&chunk->values, value);
     return chunk->values.count - 1;
 }
 
 void writeChunk(Chunk *chunk, uint8_t byte, int line) {
     if (chunk->capacity < chunk->count + 1) {
         chunk->capacity = GROW_CAPACITY(chunk->capacity);
-        chunk->code = growArray(chunk->code, chunk->capacity);
+        chunk->code = realloc(chunk->code, chunk->capacity);
         chunk->lines = realloc(chunk->lines, chunk->capacity);
     }
     
@@ -45,13 +51,3 @@ void freeChunk(Chunk *chunk) {
     initChunk(chunk);
     
 }
-
-void* reallocate(void *ptr, size_t oldSize, size_t newSize) {
-    if (newSize == 0) {
-        free(ptr);
-        return NULL;
-    }
-    
-    return realloc(ptr, newSize);
-}
-

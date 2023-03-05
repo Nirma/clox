@@ -44,6 +44,14 @@ int disassembleInstruction(Chunk *chunk, int offset) {
             return simpleInstruction("OP_RETURN", offset);
         case OP_CONST:
             return constantInstruction("Constant Instruction --", chunk, offset);
+        case OP_ADD:
+            return simpleInstruction("OP_ADD", offset);
+        case OP_MULT:
+            return simpleInstruction("OP_MULT", offset);
+        case OP_DIVIDE:
+            return simpleInstruction("OP_DIVIDE", offset);
+        case OP_SUBTRACT:
+            return simpleInstruction("OP_SUBTRACT", offset);
         default:
             printf("Unknown Instruction");
             return offset + 1;
