@@ -20,8 +20,7 @@ void writeValueArray(ValueArray* array, Value value) {
     
     if (array->capacity < array->count + 1) {
         array->capacity = GROW_CAPACITY(array->capacity);
-        array->values = realloc(array->values, array->capacity);
-        printf("Allocating...");
+        array->values = realloc(array->values, array->capacity * sizeof(Value));
     }
 
     array->values[array->count] = value;

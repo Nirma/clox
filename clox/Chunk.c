@@ -23,19 +23,18 @@ int addValue(Chunk *chunk, Value value) {
     ValueArray *array = &chunk->values;
     if (array->capacity < array->count + 1) {
         array->capacity = GROW_CAPACITY(array->capacity);
-        array->values = realloc(array->values, array->capacity);
+        array->values = realloc(array->values, array->capacity * sizeof(Value));
     }
 
     array->values[array->count] = value;
     array->count++;
-   // writeValueArray(&chunk->values, value);
     return chunk->values.count - 1;
 }
 
 void writeChunk(Chunk *chunk, uint8_t byte, int line) {
     if (chunk->capacity < chunk->count + 1) {
         chunk->capacity = GROW_CAPACITY(chunk->capacity);
-        chunk->code = realloc(chunk->code, chunk->capacity);
+        chunk->code = realloc(chunk->code, chunk->capacity * sizeof(uint8_t));
         chunk->lines = realloc(chunk->lines, chunk->capacity);
     }
     

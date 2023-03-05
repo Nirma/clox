@@ -6,7 +6,7 @@
 //
 
 #include "Debug.h"
-#import "Chunk.h"
+#include "Chunk.h"
 
 void dissassembleChunk(Chunk *chunk, const char* name) {
     printf("==== %s ====\n", name);
