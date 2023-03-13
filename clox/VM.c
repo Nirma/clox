@@ -8,7 +8,7 @@
 #include "VM.h"
 #include "Chunk.h"
 #include "Value.h"
-
+#include "Compiler.h"
 
 VM virtualMachine;
 
@@ -129,4 +129,9 @@ INTERPRETRESULT interpretChunk(Chunk *chunk) {
     virtualMachine.chunk = chunk;
     virtualMachine.ip = virtualMachine.chunk->code;
     return run();
+}
+
+INTERPRETRESULT interpret(const char *source) {
+    compile(source);
+    return INTERPRET_OK;
 }

@@ -12,36 +12,37 @@
 
 #define DEBUG 1
 
+void repl(void) {
+    char line[1024];
+    
+    for (;;) {
+        printf("> ");
+        
+        if (!fgets(line, sizeof(line), stdin)) {
+            printf("\n");
+            break;
+        }
+        
+        interpret(line);
+    }
+}
+
+void runFile(const char *filename) {
+    
+}
+
 int main(int argc, const char * argv[]) {
-    Chunk chunk;
-    
     initVM();
-    initChunk(&chunk);
-    int location;
-    location = addValue(&chunk, 50);
-    writeChunk(&chunk, OP_CONST, 123);
-    writeChunk(&chunk, location, 123);
     
-    
-    location = addValue(&chunk, 150);
-    writeChunk(&chunk, OP_CONST, 123);
-    writeChunk(&chunk, location, 123);
-    
-    writeChunk(&chunk, OP_ADD, 123);
-    
-    location = addValue(&chunk, 2);
-    writeChunk(&chunk, OP_CONST, 1);
-    writeChunk(&chunk, location, 150);
-    
-    writeChunk(&chunk, OP_MULT, 2);
-    location = addValue(&chunk, 2);
-    writeChunk(&chunk, OP_CONST, 1);
-    writeChunk(&chunk, location, 150);
-    
-    writeChunk(&chunk, OP_MULT, 2);
-    
-    writeChunk(&chunk, OP_RETURN, 1);
-    
-    interpretChunk(&chunk);
+    if (argc == 1) {
+        repl();
+    } else if (argc == 2) {
+        runFile(argv[1]);
+    } else {
+        fprintf(stderr, "Usage clox [path]/n");
+        exit(64);
+    }
+  
+
     return 0;
 }

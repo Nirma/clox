@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E15A000D29BB5AA600135111 /* Compiler.c in Sources */ = {isa = PBXBuildFile; fileRef = E15A000C29BB5AA600135111 /* Compiler.c */; };
+		E15A001029BB5B3F00135111 /* Scanner.c in Sources */ = {isa = PBXBuildFile; fileRef = E15A000F29BB5B3F00135111 /* Scanner.c */; };
 		E17227AC29A51965006B33B8 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = E17227AB29A51965006B33B8 /* main.c */; };
 		E17227B429A63039006B33B8 /* Chunk.c in Sources */ = {isa = PBXBuildFile; fileRef = E17227B329A63039006B33B8 /* Chunk.c */; };
 		E17227B729A89AC8006B33B8 /* Debug.c in Sources */ = {isa = PBXBuildFile; fileRef = E17227B629A89AC8006B33B8 /* Debug.c */; };
@@ -27,6 +29,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E15A000B29BB5AA600135111 /* Compiler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Compiler.h; sourceTree = "<group>"; };
+		E15A000C29BB5AA600135111 /* Compiler.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Compiler.c; sourceTree = "<group>"; };
+		E15A000E29BB5B3F00135111 /* Scanner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scanner.h; sourceTree = "<group>"; };
+		E15A000F29BB5B3F00135111 /* Scanner.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Scanner.c; sourceTree = "<group>"; };
 		E17227A829A51965006B33B8 /* clox */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = clox; sourceTree = BUILT_PRODUCTS_DIR; };
 		E17227AB29A51965006B33B8 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		E17227B229A519E2006B33B8 /* Chunk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Chunk.h; sourceTree = "<group>"; };
@@ -78,6 +84,10 @@
 				E17227B829A8B7E5006B33B8 /* Value.h */,
 				E17227BB29AC903C006B33B8 /* VM.h */,
 				E17227BC29AC903C006B33B8 /* VM.c */,
+				E15A000B29BB5AA600135111 /* Compiler.h */,
+				E15A000C29BB5AA600135111 /* Compiler.c */,
+				E15A000E29BB5B3F00135111 /* Scanner.h */,
+				E15A000F29BB5B3F00135111 /* Scanner.c */,
 			);
 			path = clox;
 			sourceTree = "<group>";
@@ -139,11 +149,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E15A000D29BB5AA600135111 /* Compiler.c in Sources */,
 				E17227B729A89AC8006B33B8 /* Debug.c in Sources */,
 				E17227BA29A8B7E5006B33B8 /* Value.c in Sources */,
 				E17227AC29A51965006B33B8 /* main.c in Sources */,
 				E17227B429A63039006B33B8 /* Chunk.c in Sources */,
 				E17227BD29AC903C006B33B8 /* VM.c in Sources */,
+				E15A001029BB5B3F00135111 /* Scanner.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +277,7 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_NO_COMMON_BLOCKS = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -275,6 +288,7 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_NO_COMMON_BLOCKS = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

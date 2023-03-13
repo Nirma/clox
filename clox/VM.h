@@ -39,7 +39,7 @@ void push(Value value);
 int pop(void);
 
 void resetStack(void);
-
+INTERPRETRESULT interpret(const char *line);
 INTERPRETRESULT run(void);
 
 #endif /* VM_h */
