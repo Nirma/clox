@@ -131,7 +131,9 @@ INTERPRETRESULT interpretChunk(Chunk *chunk) {
     return run();
 }
 
+Chunk chunk;
+
 INTERPRETRESULT interpret(const char *source) {
-    compile(source);
+    compile(&chunk, source);
     return INTERPRET_OK;
 }

@@ -8,9 +8,13 @@
 #ifndef Compiler_h
 #define Compiler_h
 
+#include "Scanner.h"
+#include "Chunk.h"
 #include <stdio.h>
 
-void compile(const char* source);
+bool compile(Chunk *chunk, const char* source);
+
+
 
 #endif /* Compiler_h */
 

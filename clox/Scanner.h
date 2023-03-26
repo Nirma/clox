@@ -56,7 +56,5 @@ Token errorToken(const char* message);
 void initScanner(const char* source);
 Token scanToken(void);
 
-char advance(void);
-
 
 #endif /* Scanner_h */
