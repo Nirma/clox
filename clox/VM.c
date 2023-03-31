@@ -135,5 +135,6 @@ Chunk chunk;
 
 INTERPRETRESULT interpret(const char *source) {
     compile(&chunk, source);
+    interpretChunk(&chunk);
     return INTERPRET_OK;
 }
